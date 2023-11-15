@@ -9,14 +9,9 @@ end)
 require('mason').setup({})
 
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'html', 'cssls'},
+  ensure_installed = {'tsserver', 'html', 'cssls', 'lua_ls'},
   handlers = {
     lsp_zero.default_setup,
   },
 })
 
-vim.diagnostic.config({ virtual_text = false })
-
-vim.keymap.set('n', '<leader>e', function() 
-	vim.diagnostic.open_float()
-end, {})
