@@ -74,6 +74,9 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter",
 		cmd = "TSUpdate",
 		event = "VeryLazy",
+		config = function()
+			require('plugins.configs.treesitter')
+		end
 	},
 	{
 		'nvim-lualine/lualine.nvim',
