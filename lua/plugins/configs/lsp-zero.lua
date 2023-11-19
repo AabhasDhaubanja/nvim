@@ -1,4 +1,5 @@
 local lsp_zero = require('lsp-zero')
+lsp_zero.extend_lspconfig()
 
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
@@ -9,7 +10,7 @@ end)
 require('mason').setup({})
 
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'html', 'cssls', 'lua_ls', 'svelte'},
+  ensure_installed = {'tsserver', 'html', 'cssls', 'lua_ls', 'svelte', 'tailwindcss'},
   handlers = {
     lsp_zero.default_setup,
   },
