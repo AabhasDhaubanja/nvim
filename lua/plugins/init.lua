@@ -14,6 +14,13 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		"MunifTanjim/prettier.nvim",
+		lazy = false,
+		config = function()
+			require('plugins.configs.prettier')
+		end,
+	},
+	{
 		"sindrets/diffview.nvim",
 		config = function()
 			require('plugins.configs.diffview')
