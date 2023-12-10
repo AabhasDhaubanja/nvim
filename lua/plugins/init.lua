@@ -14,10 +14,10 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
-		"MunifTanjim/prettier.nvim",
-		lazy = false,
+		'stevearc/conform.nvim',
+		opts = {},
 		config = function()
-			require('plugins.configs.prettier')
+			require('plugins.configs.conform')
 		end,
 	},
 	{
