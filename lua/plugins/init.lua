@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		opts = {} -- this is equalent to setup({}) function
+	},
+	{
 		'windwp/nvim-ts-autotag'
 	},
 	{
