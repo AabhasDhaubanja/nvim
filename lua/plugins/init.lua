@@ -14,6 +14,15 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		'windwp/nvim-ts-autotag'
+	},
+	{
+		'f-person/git-blame.nvim',
+		config = function()
+			require('plugins.configs.git-blame')
+		end
+	},
+	{
 		'stevearc/conform.nvim',
 		opts = {},
 		config = function()
@@ -34,17 +43,18 @@ local plugins = {
 			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-			require("nvim-tree").setup {}
+			require("plugins.configs.nvim-tree")
 		end,
 	},
 	{
-		'akinsho/bufferline.nvim', config = function()
+		'akinsho/bufferline.nvim',
+		config = function()
 			require('plugins.configs.bufferline')
 		end,
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		config = function() 
+		config = function()
 			require('plugins.configs.gitsigns')
 		end,
 	},
@@ -55,23 +65,27 @@ local plugins = {
 		'williamboman/mason-lspconfig.nvim',
 	},
 	{
-		'VonHeikemen/lsp-zero.nvim', branch = 'v3.x',
+		'VonHeikemen/lsp-zero.nvim',
+		branch = 'v3.x',
 		config = function()
 			require('plugins.configs.lsp-zero')
 		end,
 	},
-	{'neovim/nvim-lspconfig'},
-	{'hrsh7th/cmp-nvim-lsp'},
-	{'hrsh7th/nvim-cmp'},
-	{'L3MON4D3/LuaSnip'},
+	{ 'neovim/nvim-lspconfig' },
+	{ 'hrsh7th/cmp-nvim-lsp' },
+	{ 'hrsh7th/nvim-cmp' },
+	{ 'L3MON4D3/LuaSnip' },
 	{
-		"catppuccin/nvim", name = "catppuccin", priority = 1000,  
-		config = function () 
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
 			require('plugins.configs.catppuccin')
 		end
 	},
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.4',
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.4',
 		config = function()
 			require('plugins.configs.telescope')
 		end,
@@ -98,4 +112,3 @@ local plugins = {
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-
