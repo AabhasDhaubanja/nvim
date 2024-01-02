@@ -14,6 +14,23 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		'rose-pine/neovim',
+		name = 'rose-pine',
+		config = function()
+			require('plugins.configs.rose-pine')
+		end
+	},
+	--[[
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require('plugins.configs.catppuccin')
+		end
+	},
+	]]
+	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
 		opts = {} -- this is equalent to setup({}) function
@@ -80,14 +97,6 @@ local plugins = {
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'L3MON4D3/LuaSnip' },
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 1000,
-		config = function()
-			require('plugins.configs.catppuccin')
-		end
-	},
 	{
 		'nvim-telescope/telescope.nvim',
 		tag = '0.1.4',
