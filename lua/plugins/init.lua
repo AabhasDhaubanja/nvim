@@ -14,6 +14,14 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		'numToStr/Comment.nvim',
+		opts = {},
+		lazy = false,
+		config = function()
+			require('Comment').setup()
+		end
+	},
+	{
 		'rose-pine/neovim',
 		name = 'rose-pine',
 		config = function()
