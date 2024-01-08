@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		'mg979/vim-visual-multi',
+	},
+	{
 		'numToStr/Comment.nvim',
 		opts = {},
 		lazy = false,
