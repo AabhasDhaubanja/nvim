@@ -14,6 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{
+		'marko-cerovac/material.nvim',
+		config = function()
+			require('plugins.configs.material')
+		end
+	},
+	{
 		'mg979/vim-visual-multi',
 	},
 	{
@@ -24,13 +30,13 @@ local plugins = {
 			require('Comment').setup()
 		end
 	},
-	{
-		'rose-pine/neovim',
-		name = 'rose-pine',
-		config = function()
-			require('plugins.configs.rose-pine')
-		end
-	},
+	-- {
+	-- 	'rose-pine/neovim',
+	-- 	name = 'rose-pine',
+	-- 	config = function()
+	-- 		require('plugins.configs.rose-pine')
+	-- 	end
+	-- },
 	--[[
 	{
 		"catppuccin/nvim",
