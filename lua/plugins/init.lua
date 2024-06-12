@@ -13,12 +13,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+	--[[
 	{
 		'marko-cerovac/material.nvim',
 		config = function()
 			require('plugins.configs.material')
 		end
 	},
+	--]]
 	{
 		'mg979/vim-visual-multi',
 	},
@@ -37,7 +39,18 @@ local plugins = {
 	-- 		require('plugins.configs.rose-pine')
 	-- 	end
 	-- },
-	--[[
+	{
+		"nvim-treesitter/nvim-treesitter",
+		version      = false,
+		dependencies = {
+			'windwp/nvim-autopairs',
+			'windwp/nvim-ts-autotag',
+		},
+		build        = ":TSUpdate",
+		config       = function()
+			require('plugins.configs.treesitter')
+		end
+	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -46,14 +59,18 @@ local plugins = {
 			require('plugins.configs.catppuccin')
 		end
 	},
-	]]
 	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
-		opts = {} -- this is equalent to setup({}) function
+		config = function()
+			require("plugins.configs.nvim-autopairs")
+		end
 	},
 	{
-		'windwp/nvim-ts-autotag'
+		'windwp/nvim-ts-autotag',
+		config = function()
+			require("plugins.configs.nvim-ts-autotag")
+		end
 	},
 	{
 		'f-person/git-blame.nvim',
@@ -121,14 +138,6 @@ local plugins = {
 			require('plugins.configs.telescope')
 		end,
 		dependencies = { 'nvim-lua/plenary.nvim' }
-	},
-	{
-		"nvim-treesitter/nvim-treesitter",
-		cmd = "TSUpdate",
-		event = "VeryLazy",
-		config = function()
-			require('plugins.configs.treesitter')
-		end
 	},
 	{
 		'nvim-lualine/lualine.nvim',
